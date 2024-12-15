@@ -86,4 +86,4 @@ Make sure you have the following installed:
    DB_PASSWORD=<yourPassword>
    DB_NAME=<yourDbName>
 
-
+Thanks to looking into my project everyone!
