@@ -1,99 +1,89 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Login Project with NestJS, TypeORM, and MySQL
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is a practice project where I implement a basic login functionality using **NestJS**, **TypeORM**, and **MySQL**. After some initial training with NestJS and TypeORM, this project serves as an opportunity to apply those skills and improve them over time.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+In this project, I will focus on implementing a simple user login and registration system, which will evolve over time. Future improvements may include adding features like **JWT tokens**, **Passport.js**, **sessions**, and more. My goal is for this project to grow into a practical application with more advanced features!
 
-## Description
+## Technologies Used
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **NestJS**: A powerful, flexible framework for building scalable server-side applications with TypeScript.
+- **TypeORM**: An ORM (Object-Relational Mapper) for TypeScript and JavaScript that supports MySQL, among other databases.
+- **MySQL**: A relational database management system for storing user data.
 
-## Project setup
+## Features
 
-```bash
-$ npm install
-```
+- User registration and login functionality.
+- Integration with MySQL database via TypeORM.
+- User profile management with fields like `username`, `password`, `email`, `profilePictureUrl`, and `dateOfBirth`.
+- Ability to extend the app by adding authentication features like **JWT tokens** or **Passport.js**.
+- Simple and extensible structure that can be easily enhanced over time.
 
-## Compile and run the project
+## Future Improvements
 
-```bash
-# development
-$ npm run start
+As the project evolves, here are some potential enhancements:
 
-# watch mode
-$ npm run start:dev
+- **Authentication:**
+    - Integrate JWT for token-based authentication.
+    - Use Passport.js to support different authentication strategies.
+    - Implement sessions and cookies for secure authentication.
 
-# production mode
-$ npm run start:prod
-```
+- **User Profile:**
+    - Enable users to manage and update their profiles, including email, password, and profile picture.
 
-## Run tests
+- **Authorization:**
+    - Implement role-based access control (RBAC).
+    - Use NestJS guards to enforce role-based permissions on endpoints.
 
-```bash
-# unit tests
-$ npm run test
+- **Testing:**
+    - Add unit and integration tests using Jest.
 
-# e2e tests
-$ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
-```
+## Installation
 
-## Deployment
+### Prerequisites
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Make sure you have the following installed:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+- **Node.js** (v14 or later)
+- **MySQL** (v5.7 or later)
+- **npm** or **yarn**
+- ### Steps
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+1. **Clone the repository**  
+   Start by cloning the project to your local machine using the following command:
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+   ```bash
+   git clone https://github.com/W0Ifyyy/nestjs-typeorm-mysql-login.git
 
-## Resources
+2. **Navigate to the project directory**
+  Once the repository is cloned, go to the project directory:
+   
+  ```bash
+  cd nestjs-typeorm-mysql-login
+  ```
+3. **Install dependencies**  
+   Install all the necessary dependencies for the project. Run one of the following commands:
 
-Check out a few resources that may come in handy when working with NestJS:
+   - Using **npm**:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+     ```bash
+     npm install
+     ```
 
-## Support
+   - Or, if you're using **yarn**:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+     ```bash
+     yarn install
+     ```
 
-## Stay in touch
+4. **Create a `.env` file**  
+   In the root of the project, create a `.env` file to store your database configuration. It should look like this:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+   ```env
+   DB_HOST=<yourhost>
+   DB_PORT=<yourPort>
+   DB_USERNAME=<yourUsername>
+   DB_PASSWORD=<yourPassword>
+   DB_NAME=<yourDbName>
 
-## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
