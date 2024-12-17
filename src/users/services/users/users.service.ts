@@ -10,12 +10,14 @@ export class UsersService {
   constructor(
     @InjectRepository(Users) private usersRepository: Repository<Users>,
   ) {}
+  // creating user
   async createUser(userParams: TCreateUser) {
     return await this.usersRepository.save({
       ...userParams,
       password: hashPassword(userParams.password, 10),
     });
   }
+  // logging user
   async loginUser(userParams: TLoginUser) {
     const user = await this.usersRepository.findOne({
       where: { username: userParams.username },
