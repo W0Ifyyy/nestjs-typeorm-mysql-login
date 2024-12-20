@@ -17,8 +17,8 @@ export class UsersService {
       password: hashPassword(userParams.password, 10),
     });
   }
-  // logging user
-  async loginUser(userParams: TLoginUser) {
+  // checking if user password is correct
+  async checkPassword(userParams: TLoginUser) {
     const user = await this.usersRepository.findOne({
       where: { username: userParams.username },
     });
@@ -26,6 +26,6 @@ export class UsersService {
       throw new HttpException('User not found', HttpStatus.BAD_REQUEST);
     if (!comparePassword(userParams.password, user.password))
       throw new HttpException('Wrong Password!', HttpStatus.UNAUTHORIZED);
-    return 'Logged in!';
+    return user;
   }
 }
