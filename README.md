@@ -2,7 +2,7 @@
 
 This is a practice project where I implement a basic login functionality using **NestJS**, **TypeORM**, and **MySQL**. After some initial training with NestJS and TypeORM, this project serves as an opportunity to apply those skills and improve them over time.
 
-In this project, I will focus on implementing a simple user login and registration system, which will evolve over time. Future improvements may include adding features like **JWT tokens**, **Passport.js**, **sessions**, and more. My goal is for this project to grow into a practical application with more advanced features!
+In this project, I implemented a robust user authentication and authorization system with JWT-based token management and a modular structure for future scalability. It includes user login, registration, and profile management while following best practices for code organization and security.
 
 ## Technologies Used
 
@@ -12,31 +12,51 @@ In this project, I will focus on implementing a simple user login and registrati
 
 ## Features
 
-- User registration and login functionality.
-- Integration with MySQL database via TypeORM.
-- User profile management with fields like `username`, `password`, `email`, `profilePictureUrl`, and `dateOfBirth`.
-- Ability to extend the app by adding authentication features like **JWT tokens** or **Passport.js**.
-- Simple and extensible structure that can be easily enhanced over time.
+- **User Authentication**:
 
-## Future Improvements
+  - Secure user registration with password hashing.
+  - Login functionality with JWT token generation for authentication.
+  - Protected routes using NestJS guards.
 
-As the project evolves, here are some potential enhancements:
+- **User Profile**:
 
-- **Authentication:**
-    - Integrate JWT for token-based authentication.
-    - Use Passport.js to support different authentication strategies.
-    - Implement sessions and cookies for secure authentication.
+  - Retrieve user profiles from protected routes.
 
-- **User Profile:**
-    - Enable users to manage and update their profiles, including email, password, and profile picture.
+- **Validation**:
 
-- **Authorization:**
-    - Implement role-based access control (RBAC).
-    - Use NestJS guards to enforce role-based permissions on endpoints.
+  - Input validation using `class-validator` decorators.
+  - Strong password requirements and email format validation.
 
-- **Testing:**
-    - Add unit and integration tests using Jest.
+- **Modular Design**:
 
+  - Separation of concerns with dedicated modules for `auth` and `users`.
+
+- **Custom Decorators**:
+
+  - Public routes are annotated with a custom `@Public()` decorator to bypass authentication guards.
+
+## Folder Structure
+
+- **src/auth**:
+
+  - `auth.controller.ts`: Handles authentication-related endpoints (login, register).
+  - `auth.service.ts`: Contains business logic for authentication.
+  - `auth.guard.ts`: Implements JWT-based route protection.
+  - `auth.module.ts`: Defines the `AuthModule` and integrates dependencies like `JwtModule`.
+
+- **src/users**:
+
+  - `users.controller.ts`: Manages user-related endpoints.
+  - `users.service.ts`: Handles user creation and password validation.
+  - `users.module.ts`: Defines the `UsersModule` and integrates the TypeORM repository.
+
+- **src/decorators**:
+
+  - `public.decorator.ts`: Implements the `@Public()` decorator to make routes accessible without authentication.
+
+- **src/typeorm**:
+
+  - `entities/Users.ts`: Defines the database schema for the `Users` table.
 
 ## Installation
 
@@ -47,21 +67,24 @@ Make sure you have the following installed:
 - **Node.js** (v14 or later)
 - **MySQL** (v5.7 or later)
 - **npm** or **yarn**
-- ### Steps
 
-1. **Clone the repository**  
+### Steps
+
+1. **Clone the repository**
    Start by cloning the project to your local machine using the following command:
 
    ```bash
    git clone https://github.com/W0Ifyyy/nestjs-typeorm-mysql-login.git
+   ```
 
 2. **Navigate to the project directory**
-  Once the repository is cloned, go to the project directory:
-   
-  ```bash
-  cd nestjs-typeorm-mysql-login
-  ```
-3. **Install dependencies**  
+   Once the repository is cloned, go to the project directory:
+
+   ```bash
+   cd nestjs-typeorm-mysql-login
+   ```
+
+3. **Install dependencies**
    Install all the necessary dependencies for the project. Run one of the following commands:
 
    - Using **npm**:
@@ -76,7 +99,7 @@ Make sure you have the following installed:
      yarn install
      ```
 
-4. **Create a `.env` file**  
+4. **Create a \*\***\*\***\*\***`.env`\***\*\*\*\*\*\*\*** file\*\*
    In the root of the project, create a `.env` file to store your database configuration. It should look like this:
 
    ```env
@@ -86,4 +109,48 @@ Make sure you have the following installed:
    DB_PASSWORD=<yourPassword>
    DB_NAME=<yourDbName>
 
-Thanks for looking into my project everyone!
+   JWTSECRET=<yourJwtSecret>
+   ```
+
+5. **Run the application**
+   Start the development server with one of the following commands:
+
+   - Using **npm**:
+
+     ```bash
+     npm run start:dev
+     ```
+
+   - Using **yarn**:
+
+     ```bash
+     yarn start:dev
+     ```
+
+## Future Improvements
+
+As the project evolves, here are some potential enhancements:
+
+- **Authentication**:
+
+  - Implement refresh tokens for longer sessions.
+  - Add OAuth2 support (e.g., Google, Facebook login).
+
+- **Authorization**:
+
+  - Implement role-based access control (RBAC).
+  - Extend guards to check user roles and permissions.
+
+- **Testing**:
+
+  - Add unit and integration tests using Jest.
+
+- **User Management**:
+
+  - Add endpoints for updating user profiles and changing passwords.
+
+- **Error Handling**:
+
+  - Enhance error messages and implement centralized error handling.
+
+Thanks for looking into my project!
