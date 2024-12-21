@@ -27,9 +27,4 @@ export class AuthController {
   signUp(@Body() userParams: CreateUserDto) {
     return this.authService.signUp(userParams);
   }
-
-  @Get('profile')
-  getProfile(@Request() req) {
-    return req.user;
-  }
 }
